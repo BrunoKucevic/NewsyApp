@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "gdWcyj9QBezVuCo05GA9l3Fh8IfvPhwuoXk90CS4YvYFbKf9UxhDPFix5o5dcJeVyzGnh70/AYHssy5jE0ysHA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Brunc\\source\\repos\\Newsy\\ConsoleApp1\\ConsoleApp1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Brunc\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.18\\microsoft.netcore.app.host.win-x64.3.1.18.nupkg.sha512"
+  ],
+  "logs": []
+}
