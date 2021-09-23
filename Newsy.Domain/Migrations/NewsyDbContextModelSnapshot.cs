@@ -261,21 +261,21 @@ namespace Newsy.Domain.Migrations
                         new
                         {
                             Id = new Guid("d83b41a7-1f4a-47ac-9834-ad18473c872a"),
-                            ConcurrencyStamp = "36eeca89-6c15-420c-b099-91449069b0d5",
+                            ConcurrencyStamp = "3654a52d-780d-40b0-81b5-78bf3cfe6483",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = new Guid("49ec873f-76a1-4ba4-87cd-63ba1316438f"),
-                            ConcurrencyStamp = "683b5d1a-5646-430c-9e2f-3db999d65d77",
+                            ConcurrencyStamp = "394b9a8e-363f-4179-b101-9adfe841f67a",
                             Name = "Author",
                             NormalizedName = "AUTHOR"
                         },
                         new
                         {
                             Id = new Guid("2de02010-b551-4362-adb3-a5bbcf25eebb"),
-                            ConcurrencyStamp = "a083ed53-2fbe-4189-ab49-845097981b07",
+                            ConcurrencyStamp = "c47293e9-d09a-43c4-9f2a-0b9255c25acf",
                             Name = "RegularUser",
                             NormalizedName = "REGULARUSER"
                         });
@@ -297,16 +297,27 @@ namespace Newsy.Domain.Migrations
                     b.Property<Guid>("RoleId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("RoleId1")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
                     b.HasIndex("RoleId");
 
-                    b.HasIndex("RoleId1");
+                    b.ToTable("RoleClaims");
 
-                    b.ToTable("AspNetRoleClaims");
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ClaimType = "Admin",
+                            ClaimValue = "true",
+                            RoleId = new Guid("d83b41a7-1f4a-47ac-9834-ad18473c872a")
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ClaimType = "Author",
+                            ClaimValue = "true",
+                            RoleId = new Guid("49ec873f-76a1-4ba4-87cd-63ba1316438f")
+                        });
                 });
 
             modelBuilder.Entity("Newsy.Domain.Entities.AppUserArticle", b =>
@@ -386,15 +397,11 @@ namespace Newsy.Domain.Migrations
 
             modelBuilder.Entity("Newsy.Domain.Entities.RoleClaim", b =>
                 {
-                    b.HasOne("Newsy.Domain.Entities.Role", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Newsy.Domain.Entities.Role", "Role")
                         .WithMany("RoleClaims")
-                        .HasForeignKey("RoleId1");
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("Role");
                 });

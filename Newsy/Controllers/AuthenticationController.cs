@@ -24,17 +24,18 @@ namespace Newsy.Controllers
         {
             var userDetail = await _authenticateService.AuthenticateUserWithUsernameAndPassword(request.Username, request.Password);
             string token = string.Empty;
-            //string refreshToken = string.Empty;
+            string refreshToken = string.Empty;
 
             if (userDetail != null)
             {
                 token = await _authenticateService.GenerateTokenAsync(userDetail);
-                //refreshToken = _authenticateService.GenerateRefreshToken(request.Username);
+                refreshToken = _authenticateService.GenerateRefreshToken(request.Username);
 
                 return Ok(
                     new
                     {
-                        token
+                        token,
+                        refreshToken
                     });
             }
 

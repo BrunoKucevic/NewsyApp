@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "70O6s1Fco1NRTWiFQMtDYZhnwlls+yj1n/3sIp0F86Ab9gStVSacj79iwHwunx5JEjjgpV6AQFsQLC+xc4R0Og==",
+  "dgSpecHash": "/esJqU4UHDi/D61aZt2Lhf0j0/j4uU2tcN9pgGmujFdzeOOUTLwwOyx54Zb4B5PF8H9G9gtwkHFToBogwVB73w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Brunc\\source\\repos\\Newsy\\Newsy.Application\\Newsy.Application.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\Brunc\\.nuget\\packages\\audit.entityframework.identity.core\\18.1.5\\audit.entityframework.identity.core.18.1.5.nupkg.sha512",
     "C:\\Users\\Brunc\\.nuget\\packages\\audit.net\\18.1.5\\audit.net.18.1.5.nupkg.sha512",
     "C:\\Users\\Brunc\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",
+    "C:\\Users\\Brunc\\.nuget\\packages\\expressmapper.core\\1.9.3\\expressmapper.core.1.9.3.nupkg.sha512",
     "C:\\Users\\Brunc\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\Brunc\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\Brunc\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

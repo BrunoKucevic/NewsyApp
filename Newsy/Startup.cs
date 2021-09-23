@@ -43,6 +43,7 @@ namespace Newsy
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<TokenManagement>(Configuration.GetSection("tokenManagement"));
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -64,15 +65,7 @@ namespace Newsy
                 options.UseSqlServer(Configuration.GetConnectionString("newsy"));
             });
 
-            //services.AddDbContext<NewsyDbContext>(options =>
-            //   options.UseSqlServer(Configuration.GetConnectionString("newsy"),
-            //   sqlServerOptionsAction: sqlOptions =>
-            //   {
-            //       sqlOptions.EnableRetryOnFailure();
-            //   }));
 
-            // services.AddDefaultIdentity
-            //services.AddTransient<INewsyDbContext, NewsyDbContext>();
             services.AddIdentity<AppUser, Role>()
                 .AddRoles<Role>()
                 .AddEntityFrameworkStores<NewsyDbContext>()
@@ -89,7 +82,7 @@ namespace Newsy
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
 
-            //services.AddTransient<ICurrentUserAccessor, CurrentUserAccessor>();
+            services.AddTransient<ICurrentUserAccessor, CurrentUserAccessor>();
             services.AddTransient<UserManager<AppUser>>();
             services.AddTransient<SignInManager<AppUser>>();
 
@@ -98,29 +91,67 @@ namespace Newsy
             services.AddScoped<IAuthenticateService, AuthenticationService>();
 
             TokenManagement token = Configuration.GetSection("tokenManagement").Get<TokenManagement>();
-            tokenValidationParameters = new TokenValidationParameters
+            //tokenValidationParameters = new TokenValidationParameters
+            //{
+            //    ValidateIssuerSigningKey = true,
+            //    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(token.Secret)),
+            //    ValidIssuer = token.Issuer,
+            //    ValidAudience = token.Audience,
+            //    ValidateIssuer = false,
+            //    ValidateAudience = false,
+            //    ValidateLifetime = true,
+            //    RequireExpirationTime = true,
+            //    ClockSkew = new TimeSpan(0)
+            //};
+
+            services.AddAuthentication(auth =>
             {
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(token.Secret)),
-                ValidIssuer = token.Issuer,
-                ValidAudience = token.Audience,
-                ValidateIssuer = false,
-                ValidateAudience = false,
-                ValidateLifetime = true,
-                RequireExpirationTime = true,
-                ClockSkew = new TimeSpan(0)
-            };
-            services.AddAuthentication(x =>
-            {
-                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                auth.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            .AddJwtBearer(x =>
+            .AddJwtBearer(options =>
             {
-                x.RequireHttpsMetadata = false;
-                x.SaveToken = true;
-                x.TokenValidationParameters = tokenValidationParameters;
+                options.SaveToken = true;
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidIssuer = token.Issuer,
+                    ValidateAudience = true,
+                    ValidAudience = token.Audience,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(token.Secret))
+                };
             });
+
+            //services.AddAuthentication(auth =>
+            //{
+            //    auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    auth.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //})
+            //.AddJwtBearer(options =>
+            //{
+            //    options.SaveToken = true;
+            //    options.TokenValidationParameters = new TokenValidationParameters
+            //    {
+            //        ValidateIssuer = true,
+            //        ValidIssuer = token.Issuer,
+            //        ValidateAudience = true,
+            //        ValidAudience = token.Audience,
+            //        ValidateIssuerSigningKey = true,
+            //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(token.Secret)))
+            //    };
+            //};
+            //services.AddAuthentication(x =>
+            //{
+            //    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //})
+            //.AddJwtBearer(x =>
+            //{
+            //    x.RequireHttpsMetadata = false;
+            //    x.SaveToken = true;
+            //    x.TokenValidationParameters = tokenValidationParameters;
+            //});
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
@@ -152,6 +183,13 @@ namespace Newsy
                 });
             });
 
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Admin", policy => { policy.RequireClaim("Admin"); policy.RequireRole("Admin"); });
+                options.AddPolicy("Author", policy => policy.RequireClaim("Author"));
+                options.AddPolicy("RegularUser", policy => policy.RequireClaim("RegularUser"));
+            });
+
             services.AddControllers();
         }
 
@@ -166,9 +204,9 @@ namespace Newsy
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseStatusCodePages();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

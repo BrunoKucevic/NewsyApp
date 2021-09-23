@@ -102,3 +102,12 @@ C:\Users\Brunc\source\repos\Newsy\Newsy\obj\Debug\netcoreapp3.1\Newsy.csproj.Cop
 C:\Users\Brunc\source\repos\Newsy\Newsy\obj\Debug\netcoreapp3.1\Newsy.dll
 C:\Users\Brunc\source\repos\Newsy\Newsy\obj\Debug\netcoreapp3.1\Newsy.pdb
 C:\Users\Brunc\source\repos\Newsy\Newsy\obj\Debug\netcoreapp3.1\Newsy.genruntimeconfig.cache
+C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210923080141_637679809016946227.json
+C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210923080157_637679809175455296.json
+C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210923080345_637679810250240430.json
+C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210923080510_637679811103334988.json
+C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210923082354_637679822345157241.json
+C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210923082438_637679822784513721.json
+C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210923085025_637679838254756779.json
+C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\ExpressMapper.Core.dll
+C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210923151745_637680070659369893.json

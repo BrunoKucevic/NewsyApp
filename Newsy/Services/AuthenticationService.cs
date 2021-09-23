@@ -2,10 +2,13 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Newsy.Application.Claims;
+using Newsy.Application.Roles.GetAppUserRoles;
 using Newsy.Application.Shared.Exceptions;
 using Newsy.Application.Users.Commands.CheckPassword;
 using Newsy.Application.Users.Queries.GetUserByUsername;
 using Newsy.Domain.Entities;
+using Newsy.Domain.ViewModels.Users;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -116,7 +119,11 @@ namespace Newsy.Services
             };
 
             //get roles and claims
-            
+            var roles = await GetUserRolesByUserIdAsync(appUser.Id);
+            var userRoleClaims = await GetClaimPermissionsAsync(appUser.Id, roles.Select(r => r.Id).ToList());
+
+            roles.ForEach(r => claims.Add(new Claim(ClaimTypes.Role, r.Name)));
+            userRoleClaims.ForEach(c => claims.Add(new Claim(c.ClaimType, c.ClaimValue)));
 
             var jwtToken = new JwtSecurityToken(
                     _tokenManagement.Issuer,
@@ -134,7 +141,48 @@ namespace Newsy.Services
 
         public string GenerateRefreshToken(string username)
         {
-            throw new NotImplementedException();
+            string token = string.Empty;
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenManagement.Secret));
+            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var expires = DateTime.UtcNow.AddDays(_tokenManagement.RefreshExpirationDays);
+
+            var claims = new List<Claim>
+            {
+                new Claim("Username", username),
+                new Claim("Created", DateTime.UtcNow.ToString()),
+                new Claim("Expires", expires.ToUniversalTime().ToLongDateString())
+            };
+
+            var jwtToken = new JwtSecurityToken(
+                _tokenManagement.Issuer,
+                _tokenManagement.Audience,
+                claims,
+                expires: expires,
+                signingCredentials: credentials
+            );
+
+            token = new JwtSecurityTokenHandler().WriteToken(jwtToken);
+
+            return token;
+        }
+
+        private async Task<List<Role>> GetUserRolesByUserIdAsync(Guid userId)
+        {
+            var query = new GetAppUserRolesRequest() { UserId = userId };
+
+            GetAppUserRolesViewModel t = await _mediator.Send(query);
+
+            return t.Data;
+        }
+
+        private async Task<List<UserRoleClaimsViewModel>> GetClaimPermissionsAsync(Guid userId, List<Guid> roleIds)
+        {
+            var query = new GetClaimsForAppUserRequest() { UserId = userId, RoleIds = roleIds };
+
+            GetClaimsForAppUserViewModel t = await _mediator.Send(query);
+
+            return t.Data;
         }
     }
 }

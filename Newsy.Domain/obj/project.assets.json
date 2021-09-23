@@ -80,6 +80,18 @@
           "buildTransitive/EntityFramework.targets": {}
         }
       },
+      "ExpressMapper.Core/1.9.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/ExpressMapper.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/ExpressMapper.Core.dll": {}
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -1856,6 +1868,19 @@
         "tools/netcoreapp3.0/any/ef6.dll",
         "tools/netcoreapp3.0/any/ef6.pdb",
         "tools/netcoreapp3.0/any/ef6.runtimeconfig.json"
+      ]
+    },
+    "ExpressMapper.Core/1.9.3": {
+      "sha512": "dNEt8TevEUSUSsQtCjA38u3Tm9larv8AcDNccx0PL52204xfe81fFYedDrb85Q+I2/6dDSIYmTxy9Ebgx6EC2Q==",
+      "type": "package",
+      "path": "expressmapper.core/1.9.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "expressmapper.core.1.9.3.nupkg.sha512",
+        "expressmapper.core.nuspec",
+        "lib/netstandard2.0/ExpressMapper.Core.dll",
+        "lib/netstandard2.0/ExpressMapper.Core.xml"
       ]
     },
     "Humanizer.Core/2.8.26": {
@@ -6257,6 +6282,7 @@
     ".NETCoreApp,Version=v3.1": [
       "Audit.EntityFramework >= 18.1.5",
       "Audit.EntityFramework.Identity.Core >= 18.1.5",
+      "ExpressMapper.Core >= 1.9.3",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 5.0.10",
       "Microsoft.EntityFrameworkCore >= 5.0.10",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.10",
@@ -6320,6 +6346,10 @@
           "Audit.EntityFramework.Identity.Core": {
             "target": "Package",
             "version": "[18.1.5, )"
+          },
+          "ExpressMapper.Core": {
+            "target": "Package",
+            "version": "[1.9.3, )"
           },
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
             "target": "Package",

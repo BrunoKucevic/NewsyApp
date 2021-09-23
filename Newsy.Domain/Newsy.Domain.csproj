@@ -8,6 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Audit.EntityFramework" Version="18.1.5" />
     <PackageReference Include="Audit.EntityFramework.Identity.Core" Version="18.1.5" />
+    <PackageReference Include="ExpressMapper.Core" Version="1.9.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.10">
@@ -26,8 +27,6 @@
 
   <ItemGroup>
     <Folder Include="ViewModels\Articles\" />
-    <Folder Include="ViewModels\Roles\" />
-    <Folder Include="ViewModels\Users\" />
   </ItemGroup>
 
 </Project>

@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "Newsy.Application/1.0.0": {
         "dependencies": {
+          "ExpressMapper.Core": "1.9.3",
           "MediatR": "9.0.0",
           "Microsoft.AspNetCore.Identity": "2.2.0",
           "Newsy.Domain": "1.0.0"
@@ -84,6 +85,17 @@
           "lib/netstandard2.1/EntityFramework.dll": {
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.300.19.46401"
+          }
+        }
+      },
+      "ExpressMapper.Core/1.9.3": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.6.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/ExpressMapper.Core.dll": {
+            "assemblyVersion": "1.9.3.0",
+            "fileVersion": "1.9.3.0"
           }
         }
       },
@@ -1528,6 +1540,7 @@
         "dependencies": {
           "Audit.EntityFramework": "18.1.5",
           "Audit.EntityFramework.Identity.Core": "18.1.5",
+          "ExpressMapper.Core": "1.9.3",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.10",
           "Microsoft.EntityFrameworkCore": "5.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.10",
@@ -1581,6 +1594,13 @@
       "sha512": "sha512-mEvhoXscTyLFMcnbLzKlbWdx6N8fCY2IMe4drjUTMFqOqI4KThnTPXr1m50oXDJAn5PvCy2e90IcwN/OxkJUjg==",
       "path": "entityframework/6.3.0",
       "hashPath": "entityframework.6.3.0.nupkg.sha512"
+    },
+    "ExpressMapper.Core/1.9.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dNEt8TevEUSUSsQtCjA38u3Tm9larv8AcDNccx0PL52204xfe81fFYedDrb85Q+I2/6dDSIYmTxy9Ebgx6EC2Q==",
+      "path": "expressmapper.core/1.9.3",
+      "hashPath": "expressmapper.core.1.9.3.nupkg.sha512"
     },
     "MediatR/9.0.0": {
       "type": "package",

@@ -54,6 +54,7 @@ namespace Newsy.Domain.Context
             builder.ApplyConfiguration(new AppUserTokenConfiguration());
             builder.ApplyConfiguration(new ArticleEntityConfiguration());
             builder.ApplyConfiguration(new AppUserArticleConfiguration());
+            builder.ApplyConfiguration(new RoleClaimEntityConfiguration());
 
             if (Database.IsSqlServer())
             {

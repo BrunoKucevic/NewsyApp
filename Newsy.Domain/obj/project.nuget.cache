@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "h4E2J2oH7Co8f0jvy72pAnQ28seBvVuohKQXU4vNjduk3crhGx5V4oYibCcERYdPwxoFXK3vLjyXVNP4E5prBg==",
+  "dgSpecHash": "s+sYHy7KmNONAhg0LeBDyPl03M2XttKW9Pzhaf2OwOyfAP6gtmavTJW5cewQEogjnIp9l+8aH4PEwJqsIRUtLg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Brunc\\source\\repos\\Newsy\\Newsy.Domain\\Newsy.Domain.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\Brunc\\.nuget\\packages\\audit.entityframework.identity.core\\18.1.5\\audit.entityframework.identity.core.18.1.5.nupkg.sha512",
     "C:\\Users\\Brunc\\.nuget\\packages\\audit.net\\18.1.5\\audit.net.18.1.5.nupkg.sha512",
     "C:\\Users\\Brunc\\.nuget\\packages\\entityframework\\6.3.0\\entityframework.6.3.0.nupkg.sha512",
+    "C:\\Users\\Brunc\\.nuget\\packages\\expressmapper.core\\1.9.3\\expressmapper.core.1.9.3.nupkg.sha512",
     "C:\\Users\\Brunc\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Brunc\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.10\\microsoft.aspnetcore.cryptography.internal.5.0.10.nupkg.sha512",
     "C:\\Users\\Brunc\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.10\\microsoft.aspnetcore.cryptography.keyderivation.5.0.10.nupkg.sha512",
