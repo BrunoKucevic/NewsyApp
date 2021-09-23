@@ -21,10 +21,19 @@ namespace Newsy.Domain.Seeding
 
 
         };
+
+        private static readonly List<string> UserGuids = new List<string>
+        {
+            "8D113B3C-54E5-4614-98FB-41BFB8596F51",//author
+            "3172FDF5-9F76-40CA-8331-DBD94963F9EF",//admin
+            "FB2F4E2B-8C69-490F-A65D-E4921491260A"//regular
+        };
+
         public static void SeedInitialData(ModelBuilder builder)
         {
             SeedRoles(builder);
             SeedRoleClaims(builder);
+            SeedUserRoles(builder);
         }
 
         private static void SeedRoles(ModelBuilder builder)
@@ -36,24 +45,53 @@ namespace Newsy.Domain.Seeding
             );
         }
 
+        private static void SeedUserRoles(ModelBuilder builder)
+        {
+            builder.Entity<AppUserRole>()
+                .HasData(
+                new AppUserRole
+                {
+                    RoleId = new Guid(RolesGuids[0]),
+                    UserId = new Guid(UserGuids[1])
+                },
+                new AppUserRole
+                {
+                    RoleId = new Guid(RolesGuids[1]),
+                    UserId = new Guid(UserGuids[0])
+                }, new AppUserRole
+                {
+                    RoleId = new Guid(RolesGuids[2]),
+                    UserId = new Guid(UserGuids[2])
+                }
+            );
+        }
+
+
         private static void SeedRoleClaims(ModelBuilder builder)
         {
             builder.Entity<RoleClaim>()
                 .HasData(
-                new RoleClaim
-                {
-                    Id = 1,
-                    ClaimType = "Admin",
-                    ClaimValue = "true",
-                    RoleId = new Guid(RolesGuids[0])
-                },
-                new RoleClaim
-                {
-                    Id = 2,
-                    ClaimType = "Author",
-                    ClaimValue = "true",
-                    RoleId = new Guid(RolesGuids[1])
-                }
+                        new RoleClaim
+                        {
+                            Id = 1,
+                            ClaimType = "Admin",
+                            ClaimValue = "true",
+                            RoleId = new Guid(RolesGuids[0])
+                        },
+                        new RoleClaim
+                        {
+                            Id = 2,
+                            ClaimType = "Author",
+                            ClaimValue = "true",
+                            RoleId = new Guid(RolesGuids[1])
+                        },
+                        new RoleClaim
+                        {
+                            Id = 3,
+                            ClaimType = "RegularUser",
+                            ClaimValue = "true",
+                            RoleId = new Guid(RolesGuids[2])
+                        }
             );
         }
     }

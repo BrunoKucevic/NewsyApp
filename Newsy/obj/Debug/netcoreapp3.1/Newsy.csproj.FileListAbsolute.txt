@@ -111,3 +111,4 @@ C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210923082438_6
 C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210923085025_637679838254756779.json
 C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\ExpressMapper.Core.dll
 C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210923151745_637680070659369893.json
+C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210923182201_637680181219388107.json

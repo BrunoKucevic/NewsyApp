@@ -194,6 +194,23 @@ namespace Newsy.Domain.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AppUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = new Guid("3172fdf5-9f76-40ca-8331-dbd94963f9ef"),
+                            RoleId = new Guid("d83b41a7-1f4a-47ac-9834-ad18473c872a")
+                        },
+                        new
+                        {
+                            UserId = new Guid("8d113b3c-54e5-4614-98fb-41bfb8596f51"),
+                            RoleId = new Guid("49ec873f-76a1-4ba4-87cd-63ba1316438f")
+                        },
+                        new
+                        {
+                            UserId = new Guid("fb2f4e2b-8c69-490f-a65d-e4921491260a"),
+                            RoleId = new Guid("2de02010-b551-4362-adb3-a5bbcf25eebb")
+                        });
                 });
 
             modelBuilder.Entity("Newsy.Domain.Entities.AppUserToken", b =>
@@ -261,21 +278,21 @@ namespace Newsy.Domain.Migrations
                         new
                         {
                             Id = new Guid("d83b41a7-1f4a-47ac-9834-ad18473c872a"),
-                            ConcurrencyStamp = "3654a52d-780d-40b0-81b5-78bf3cfe6483",
+                            ConcurrencyStamp = "14e288ec-1635-4d82-90ab-a8cce418ecdb",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = new Guid("49ec873f-76a1-4ba4-87cd-63ba1316438f"),
-                            ConcurrencyStamp = "394b9a8e-363f-4179-b101-9adfe841f67a",
+                            ConcurrencyStamp = "f4d67acb-475f-44b8-85a9-3d0492b80f00",
                             Name = "Author",
                             NormalizedName = "AUTHOR"
                         },
                         new
                         {
                             Id = new Guid("2de02010-b551-4362-adb3-a5bbcf25eebb"),
-                            ConcurrencyStamp = "c47293e9-d09a-43c4-9f2a-0b9255c25acf",
+                            ConcurrencyStamp = "578ced65-9325-48da-ac5b-2f778e762dd0",
                             Name = "RegularUser",
                             NormalizedName = "REGULARUSER"
                         });
@@ -317,6 +334,13 @@ namespace Newsy.Domain.Migrations
                             ClaimType = "Author",
                             ClaimValue = "true",
                             RoleId = new Guid("49ec873f-76a1-4ba4-87cd-63ba1316438f")
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ClaimType = "RegularUser",
+                            ClaimValue = "true",
+                            RoleId = new Guid("2de02010-b551-4362-adb3-a5bbcf25eebb")
                         });
                 });
 

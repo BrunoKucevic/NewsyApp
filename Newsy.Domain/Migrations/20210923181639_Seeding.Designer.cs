@@ -10,8 +10,8 @@ using Newsy.Domain.Context;
 namespace Newsy.Domain.Migrations
 {
     [DbContext(typeof(NewsyDbContext))]
-    [Migration("20210923132155_AnotherSeeding")]
-    partial class AnotherSeeding
+    [Migration("20210923181639_Seeding")]
+    partial class Seeding
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -196,6 +196,23 @@ namespace Newsy.Domain.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AppUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = new Guid("3172fdf5-9f76-40ca-8331-dbd94963f9ef"),
+                            RoleId = new Guid("d83b41a7-1f4a-47ac-9834-ad18473c872a")
+                        },
+                        new
+                        {
+                            UserId = new Guid("8d113b3c-54e5-4614-98fb-41bfb8596f51"),
+                            RoleId = new Guid("49ec873f-76a1-4ba4-87cd-63ba1316438f")
+                        },
+                        new
+                        {
+                            UserId = new Guid("fb2f4e2b-8c69-490f-a65d-e4921491260a"),
+                            RoleId = new Guid("2de02010-b551-4362-adb3-a5bbcf25eebb")
+                        });
                 });
 
             modelBuilder.Entity("Newsy.Domain.Entities.AppUserToken", b =>
@@ -263,21 +280,21 @@ namespace Newsy.Domain.Migrations
                         new
                         {
                             Id = new Guid("d83b41a7-1f4a-47ac-9834-ad18473c872a"),
-                            ConcurrencyStamp = "81eaba8e-d664-4f75-9ccf-ee7d2ea93cfc",
+                            ConcurrencyStamp = "14e288ec-1635-4d82-90ab-a8cce418ecdb",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = new Guid("49ec873f-76a1-4ba4-87cd-63ba1316438f"),
-                            ConcurrencyStamp = "54eaad3f-3e47-48d9-9cca-0778f2137baa",
+                            ConcurrencyStamp = "f4d67acb-475f-44b8-85a9-3d0492b80f00",
                             Name = "Author",
                             NormalizedName = "AUTHOR"
                         },
                         new
                         {
                             Id = new Guid("2de02010-b551-4362-adb3-a5bbcf25eebb"),
-                            ConcurrencyStamp = "39b1dadf-e716-4ba3-83c7-37f05edf4062",
+                            ConcurrencyStamp = "578ced65-9325-48da-ac5b-2f778e762dd0",
                             Name = "RegularUser",
                             NormalizedName = "REGULARUSER"
                         });
@@ -304,6 +321,29 @@ namespace Newsy.Domain.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("RoleClaims");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ClaimType = "Admin",
+                            ClaimValue = "true",
+                            RoleId = new Guid("d83b41a7-1f4a-47ac-9834-ad18473c872a")
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ClaimType = "Author",
+                            ClaimValue = "true",
+                            RoleId = new Guid("49ec873f-76a1-4ba4-87cd-63ba1316438f")
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ClaimType = "RegularUser",
+                            ClaimValue = "true",
+                            RoleId = new Guid("2de02010-b551-4362-adb3-a5bbcf25eebb")
+                        });
                 });
 
             modelBuilder.Entity("Newsy.Domain.Entities.AppUserArticle", b =>
