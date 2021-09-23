@@ -5,13 +5,14 @@ using Newsy.Domain.Entities;
 using Newsy.Domain.EntityConfigurations;
 using Newsy.Domain.Interfaces;
 using System;
+using Audit.EntityFramework;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
 namespace Newsy.Domain.Context
 {
-    public class NewsyDbContext : IdentityDbContext, INewsyDbContext
+    public partial class NewsyDbContext: AuditIdentityDbContext<AppUser, Role, Guid, AppUserClaim, AppUserRole, AppUserLogin, RoleClaim, AppUserToken>, INewsyDbContext
     {
         public NewsyDbContext(DbContextOptions<NewsyDbContext> options)
             : base(options)
@@ -46,6 +47,8 @@ namespace Newsy.Domain.Context
             builder.ApplyConfiguration(new AppUserEntityConfiguration());
             builder.ApplyConfiguration(new AppUserRoleEntityConfiguration());
             builder.ApplyConfiguration(new RoleEntityConfiguration());
+            builder.ApplyConfiguration(new AppUserLoginConfiguration());
+            builder.ApplyConfiguration(new AppUserTokenConfiguration());
         }
     }
 }

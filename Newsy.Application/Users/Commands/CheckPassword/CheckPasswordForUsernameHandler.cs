@@ -12,14 +12,12 @@ namespace Newsy.Application.Users.Commands.CheckPassword
 {
     public class CheckPasswordForUsernameHandler : IRequestHandler<CheckPasswordForUsernameRequest, CheckPasswordForUsernameViewModel>
     {
-        private readonly INewsyDbContext _context;
         private readonly IMediator _mediator;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
 
-    public CheckPasswordForUsernameHandler(INewsyDbContext context, IMediator mediator, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+    public CheckPasswordForUsernameHandler(IMediator mediator, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
     {
-        _context = context;
         _mediator = mediator;
         _userManager = userManager;
         _signInManager = signInManager;

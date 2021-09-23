@@ -12,9 +12,12 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Newsy.Application.Shared.Interfaces;
 using Newsy.Application.Users.Commands.RegisterUser;
 using Newsy.Domain.Context;
+using Newsy.Domain.Entities;
 using Newsy.Domain.Interfaces;
+using Newsy.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,10 +30,12 @@ namespace Newsy
 {
     public class Startup
     {
+        //private readonly IServiceProvider _serviceProvider;
         private TokenValidationParameters tokenValidationParameters;
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration/*, IServiceProvider serviceProvider*/)
         {
             Configuration = configuration;
+            //_serviceProvider = serviceProvider;
         }
 
         public IConfiguration Configuration { get; }
@@ -38,17 +43,40 @@ namespace Newsy
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<INewsyDbContext, NewsyDbContext>(options =>
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Password settings - used in  by UserManager in ResetPasswordCommand
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 8;
+                options.Password.RequiredUniqueChars = 1;
+                //used by signInManager
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.DefaultLockoutTimeSpan = new TimeSpan(0, 15, 0);
+            });
+
+
+            services.AddDbContext<NewsyDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("newsy"));
             });
 
-            // services.AddDefaultIdentity
+            //services.AddDbContext<NewsyDbContext>(options =>
+            //   options.UseSqlServer(Configuration.GetConnectionString("newsy"),
+            //   sqlServerOptionsAction: sqlOptions =>
+            //   {
+            //       sqlOptions.EnableRetryOnFailure();
+            //   }));
 
-            //services.AddIdentity<UserDetail, Role>()
-            //    .AddRoles<Role>()
-            //    .AddEntityFrameworkStores<NewsyDbContext>()
-            //    .AddDefaultTokenProviders();
+            // services.AddDefaultIdentity
+            //services.AddTransient<INewsyDbContext, NewsyDbContext>();
+            services.AddIdentity<AppUser, Role>()
+                .AddRoles<Role>()
+                .AddEntityFrameworkStores<NewsyDbContext>()
+                .AddDefaultTokenProviders();
 
             //// Add MediatR
             services.AddMediatR(typeof(RegisterUserHandler).GetTypeInfo().Assembly);
@@ -58,29 +86,15 @@ namespace Newsy
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestStringTrimmingBehavior<,>));
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
-            //if (!_hostingEnvironment.IsDevelopment())
-            //    services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ApplicationInsightsCustomBehavior<,>));
 
-            // standard DI
-            //services.AddTransient<INotificationService, EmailNotificationService>();
             //services.AddTransient<ICurrentUserAccessor, CurrentUserAccessor>();
-            //services.AddTransient<UserManager<UserDetail>>();
-            //services.AddTransient<SignInManager<UserDetail>>();
-            //if needed ITripleRDbContext can be switched to scoped
+            services.AddTransient<UserManager<AppUser>>();
+            services.AddTransient<SignInManager<AppUser>>();
+
             services.AddTransient<INewsyDbContext, NewsyDbContext>();
             //services.AddTransient<PasswordHasher<UserDetail>>();
-            //services.AddScoped<IAuthenticateService, AuthenticateService>();
+            services.AddScoped<IAuthenticateService, AuthenticationService>();
 
-            // 1. Add Authentication Services
-            //services.AddAuthentication(options =>
-            //{
-            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //}).AddJwtBearer(options =>
-            //{
-            //    options.Authority = "https://dev-23rherum.us.auth0.com/";
-            //    options.Audience = "https://newsy.com";
-            //});
             TokenManagement token = Configuration.GetSection("tokenManagement").Get<TokenManagement>();
             tokenValidationParameters = new TokenValidationParameters
             {

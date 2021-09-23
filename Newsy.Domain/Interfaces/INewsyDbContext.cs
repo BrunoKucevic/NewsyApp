@@ -4,6 +4,8 @@ using Newsy.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Newsy.Domain.Interfaces
 {
@@ -16,5 +18,7 @@ namespace Newsy.Domain.Interfaces
         DbSet<AppUserRole> UserRoles { get; set; }
         DbSet<Role> Roles { get; set; }
         DbSet<RoleClaim> RoleClaims { get; set; }
+
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }
