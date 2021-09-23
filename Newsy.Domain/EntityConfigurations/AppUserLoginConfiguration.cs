@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Newsy.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Newsy.Domain.Entities
+namespace Newsy.Domain.EntityConfigurations
 {
     public class AppUserLoginConfiguration : IEntityTypeConfiguration<AppUserLogin>
     {

@@ -78,6 +78,8 @@ namespace Newsy
                 .AddEntityFrameworkStores<NewsyDbContext>()
                 .AddDefaultTokenProviders();
 
+            Application.AppInit.Initialize();
+
             //// Add MediatR
             services.AddMediatR(typeof(RegisterUserHandler).GetTypeInfo().Assembly);
             //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));

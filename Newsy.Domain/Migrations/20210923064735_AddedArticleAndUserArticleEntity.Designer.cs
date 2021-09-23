@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Newsy.Domain.Context;
 
 namespace Newsy.Domain.Migrations
 {
     [DbContext(typeof(NewsyDbContext))]
-    partial class NewsyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210923064735_AddedArticleAndUserArticleEntity")]
+    partial class AddedArticleAndUserArticleEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -256,29 +258,6 @@ namespace Newsy.Domain.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("Roles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("d83b41a7-1f4a-47ac-9834-ad18473c872a"),
-                            ConcurrencyStamp = "36eeca89-6c15-420c-b099-91449069b0d5",
-                            Name = "Admin",
-                            NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = new Guid("49ec873f-76a1-4ba4-87cd-63ba1316438f"),
-                            ConcurrencyStamp = "683b5d1a-5646-430c-9e2f-3db999d65d77",
-                            Name = "Author",
-                            NormalizedName = "AUTHOR"
-                        },
-                        new
-                        {
-                            Id = new Guid("2de02010-b551-4362-adb3-a5bbcf25eebb"),
-                            ConcurrencyStamp = "a083ed53-2fbe-4189-ab49-845097981b07",
-                            Name = "RegularUser",
-                            NormalizedName = "REGULARUSER"
-                        });
                 });
 
             modelBuilder.Entity("Newsy.Domain.Entities.RoleClaim", b =>

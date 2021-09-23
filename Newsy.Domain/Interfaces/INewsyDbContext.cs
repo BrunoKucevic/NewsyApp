@@ -18,6 +18,8 @@ namespace Newsy.Domain.Interfaces
         DbSet<AppUserRole> UserRoles { get; set; }
         DbSet<Role> Roles { get; set; }
         DbSet<RoleClaim> RoleClaims { get; set; }
+        DbSet<Article> Articles { get; set; }
+        DbSet<AppUserArticle> AppUserArticles { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }

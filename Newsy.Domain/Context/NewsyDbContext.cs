@@ -9,6 +9,7 @@ using Audit.EntityFramework;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Newsy.Domain.Seeding;
 
 namespace Newsy.Domain.Context
 {
@@ -25,6 +26,8 @@ namespace Newsy.Domain.Context
         public virtual new DbSet<AppUserRole> UserRoles { get; set; }
         public virtual new DbSet<Role> Roles { get; set; }
         public virtual new DbSet<RoleClaim> RoleClaims { get; set; }
+        public virtual DbSet<Article> Articles { get; set; }
+        public virtual DbSet<AppUserArticle> AppUserArticles { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -49,6 +52,14 @@ namespace Newsy.Domain.Context
             builder.ApplyConfiguration(new RoleEntityConfiguration());
             builder.ApplyConfiguration(new AppUserLoginConfiguration());
             builder.ApplyConfiguration(new AppUserTokenConfiguration());
+            builder.ApplyConfiguration(new ArticleEntityConfiguration());
+            builder.ApplyConfiguration(new AppUserArticleConfiguration());
+
+            if (Database.IsSqlServer())
+            {
+                //seed database
+                InitialDataSeed.SeedInitialData(builder);
+            }
         }
     }
 }
