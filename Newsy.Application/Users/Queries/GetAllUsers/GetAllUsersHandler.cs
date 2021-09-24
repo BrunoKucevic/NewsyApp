@@ -29,6 +29,7 @@ namespace Newsy.Application.Users.Queries.GetAllUsers
                 .OrderBy(x => x.LastName)
                 .Include(r => r.UserRoles)
                     .ThenInclude(s => s.Role)
+                .Where(u => !u.Archived)
                 .Select(y => y.Map(new AllUsersViewModel()))
                 .ToListAsync(cancellationToken);
 

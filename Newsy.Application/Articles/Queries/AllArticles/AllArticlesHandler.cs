@@ -28,7 +28,7 @@ namespace Newsy.Application.Articles.Queries.AllArticles
             var articles =
                 await _context.AppUserArticles
                 .AsNoTracking()
-                .Include(i => i.Article)
+                .Include(i => i.Article).Where(a => !a.Article.Archived)
                 .Include(a => a.AppUser)
                 .Select(x => x.Map(new GetAllArticlesViewModel()))
                 .ToListAsync(cancellationToken);

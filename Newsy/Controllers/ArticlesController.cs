@@ -31,5 +31,11 @@ namespace Newsy.Controllers
 
             return Ok(res);
         }
+
+        //articles by id and my articles
+
+        //update artice
+
+        //archive article
     }
 }

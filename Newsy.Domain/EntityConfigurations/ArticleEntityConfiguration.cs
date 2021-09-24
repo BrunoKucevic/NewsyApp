@@ -22,6 +22,13 @@ namespace Newsy.Domain.EntityConfigurations
                 .IsRequired()
                 .HasColumnType("nvarchar(max)");
 
+            builder
+                .Property(u => u.Archived)
+                .IsRequired()
+                .HasColumnType("bit")
+                .HasDefaultValue(0);
+
+
             builder.ToTable("Articles");
         }
     }

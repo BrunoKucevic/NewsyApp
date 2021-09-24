@@ -9,6 +9,7 @@ namespace Newsy.Domain.Entities
         public Guid Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
+        public bool Archived { get; set; }
 
         public virtual ICollection<AppUserArticle> AppUsers { get; set; }
     }
