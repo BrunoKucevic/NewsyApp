@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 
 namespace Newsy.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class AuthenticationController : BaseController
     {
         private readonly IAuthenticateService _authenticateService;

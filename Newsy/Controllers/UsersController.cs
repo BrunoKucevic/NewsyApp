@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newsy.Application.Users.Commands.ActivateUser;
 using Newsy.Application.Users.Commands.RegisterUser;
 using Newsy.Application.Users.Commands.UpdateCurrentUser;
+using Newsy.Application.Users.Queries.GetAllUsers;
 using Newsy.Domain;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,8 @@ using System.Threading.Tasks;
 
 namespace Newsy.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class UsersController : BaseController
     {
         [HttpPost("register")]
@@ -24,9 +27,19 @@ namespace Newsy.Controllers
             return NoContent();
         }
 
+        [HttpGet("getAllUsers")]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult<GetAllUsersViewModel>> GetAllUsers()
+        {
+            GetAllUsersRequest request = new GetAllUsersRequest();
+            GetAllUsersViewModel res = await Mediator.Send(request);
+
+            return res;
+        }
+
+
         [HttpPost("activate")]
-        //[Authorize(Roles = "Admin")]
-        [Authorize(Policy = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ActivateUserViewModel>> ActivateUser([FromBody] ActivateUserRequest request)
         {
             ActivateUserViewModel res = await Mediator.Send(request);
@@ -37,7 +50,6 @@ namespace Newsy.Controllers
         [HttpPost("updateUser")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesDefaultResponseType]
-        //[Authorize]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateCurrentUser([FromBody] UpdateCurrentUserRequest request)
         {

@@ -79,7 +79,6 @@ C:\Users\Brunc\source\repos\Newsy\Newsy.Domain\bin\Debug\netcoreapp3.1\runtimes\
 C:\Users\Brunc\source\repos\Newsy\Newsy.Domain\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\Brunc\source\repos\Newsy\Newsy.Domain\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Brunc\source\repos\Newsy\Newsy.Domain\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-C:\Users\Brunc\source\repos\Newsy\Newsy.Domain\obj\Debug\netcoreapp3.1\Newsy.Domain.csproj.AssemblyReference.cache
 C:\Users\Brunc\source\repos\Newsy\Newsy.Domain\obj\Debug\netcoreapp3.1\Newsy.Domain.AssemblyInfoInputs.cache
 C:\Users\Brunc\source\repos\Newsy\Newsy.Domain\obj\Debug\netcoreapp3.1\Newsy.Domain.AssemblyInfo.cs
 C:\Users\Brunc\source\repos\Newsy\Newsy.Domain\obj\Debug\netcoreapp3.1\Newsy.Domain.csproj.CoreCompileInputs.cache
@@ -88,3 +87,4 @@ C:\Users\Brunc\source\repos\Newsy\Newsy.Domain\obj\Debug\netcoreapp3.1\Newsy.Dom
 C:\Users\Brunc\source\repos\Newsy\Newsy.Domain\obj\Debug\netcoreapp3.1\Newsy.Domain.pdb
 C:\Users\Brunc\source\repos\Newsy\Newsy.Domain\obj\Debug\netcoreapp3.1\Newsy.Domain.genruntimeconfig.cache
 C:\Users\Brunc\source\repos\Newsy\Newsy.Domain\bin\Debug\netcoreapp3.1\ExpressMapper.Core.dll
+C:\Users\Brunc\source\repos\Newsy\Newsy.Domain\obj\Debug\netcoreapp3.1\Newsy.Domain.csproj.AssemblyReference.cache

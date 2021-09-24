@@ -4,6 +4,7 @@ using Newsy.Domain.Interfaces;
 using Newsy.Domain.ViewModels.Users;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Newsy.Domain.ViewModels.Roles
@@ -12,6 +13,7 @@ namespace Newsy.Domain.ViewModels.Roles
     {
         public void RegisterMappings()
         {
+            Mapper.Register<Role, RolesViewModel>();
             Mapper.Register<RoleClaim, UserRoleClaimsViewModel>();
         }
     }

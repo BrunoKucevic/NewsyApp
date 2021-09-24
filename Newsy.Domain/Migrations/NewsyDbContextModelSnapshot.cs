@@ -242,6 +242,10 @@ namespace Newsy.Domain.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Articles");
@@ -278,21 +282,21 @@ namespace Newsy.Domain.Migrations
                         new
                         {
                             Id = new Guid("d83b41a7-1f4a-47ac-9834-ad18473c872a"),
-                            ConcurrencyStamp = "14e288ec-1635-4d82-90ab-a8cce418ecdb",
+                            ConcurrencyStamp = "8cdcc3f4-7f75-4d47-8eee-77c2204036fb",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = new Guid("49ec873f-76a1-4ba4-87cd-63ba1316438f"),
-                            ConcurrencyStamp = "f4d67acb-475f-44b8-85a9-3d0492b80f00",
+                            ConcurrencyStamp = "0b914f14-3b60-4b30-92bb-70966b2c5a63",
                             Name = "Author",
                             NormalizedName = "AUTHOR"
                         },
                         new
                         {
                             Id = new Guid("2de02010-b551-4362-adb3-a5bbcf25eebb"),
-                            ConcurrencyStamp = "578ced65-9325-48da-ac5b-2f778e762dd0",
+                            ConcurrencyStamp = "b65744d0-393b-4981-abac-47c7af64ec76",
                             Name = "RegularUser",
                             NormalizedName = "REGULARUSER"
                         });
