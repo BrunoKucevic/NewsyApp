@@ -18,6 +18,8 @@ using Newsy.Application.Users.Commands.RegisterUser;
 using Newsy.Domain.Context;
 using Newsy.Domain.Entities;
 using Newsy.Domain.Interfaces;
+using Newsy.Interfaces;
+using Newsy.ServiceInstallers;
 using Newsy.Services;
 using System;
 using System.Collections.Generic;
@@ -46,47 +48,9 @@ namespace Newsy
         {
             services.Configure<TokenManagement>(Configuration.GetSection("tokenManagement"));
 
-            services.Configure<IdentityOptions>(options =>
-            {
-                // Password settings - used in  by UserManager in ResetPasswordCommand
-                options.Password.RequireDigit = true;
-                options.Password.RequireLowercase = true;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = true;
-                options.Password.RequiredLength = 8;
-                options.Password.RequiredUniqueChars = 1;
-                //used by signInManager
-                options.Lockout.MaxFailedAccessAttempts = 5;
-                options.Lockout.DefaultLockoutTimeSpan = new TimeSpan(0, 15, 0);
-            });
-
-
-            services.AddDbContext<NewsyDbContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("newsy"));
-            });
-
-
-            services.AddIdentity<AppUser, Role>()
-                .AddRoles<Role>()
-                .AddEntityFrameworkStores<NewsyDbContext>()
-                .AddDefaultTokenProviders();
+            services.InstallAllServices(Configuration);
 
             Application.AppInit.Initialize();
-            //DI
-            services.AddTransient<ICurrentUserAccessor, CurrentUserAccessor>();
-            services.AddTransient<UserManager<AppUser>>();
-            services.AddTransient<SignInManager<AppUser>>();
-            services.AddMemoryCache();
-            //// Add MediatR
-            services.AddMediatR(typeof(RegisterUserHandler).GetTypeInfo().Assembly);
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
-
-
-
-            services.AddTransient<INewsyDbContext, NewsyDbContext>();
-            //services.AddTransient<PasswordHasher<UserDetail>>();
-            services.AddScoped<IAuthenticateService, AuthenticationService>();
 
             TokenManagement token = Configuration.GetSection("tokenManagement").Get<TokenManagement>();
 
@@ -107,36 +71,6 @@ namespace Newsy
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(token.Secret))
                 };
-            });
-
-            // Swagger
-            services.AddSwaggerGen(c =>
-            {
-                //c.EnableAnnotations();
-                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Newsy API", Version = "v1", Description = "This is made for a Newsy Web API" });
-
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
-                {
-                    Description = "JWT Authorization header {token}",
-                    Name = "Authorization",
-                    In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey
-                });
-
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement
-                {
-                    {
-                        new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference
-                            {
-                                Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
-                            }
-                        },
-                        new string[] { }
-                    }
-                });
             });
 
             services.AddAuthorization(options =>

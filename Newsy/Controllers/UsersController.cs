@@ -27,7 +27,7 @@ namespace Newsy.Controllers
             return NoContent();
         }
 
-        [HttpGet("getAllUsers")]
+        [HttpPost("getAllUsers")]
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult<GetAllUsersViewModel>> GetAllUsers([FromBody] GetAllUsersRequest request)
         {

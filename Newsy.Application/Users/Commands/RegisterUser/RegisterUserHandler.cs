@@ -41,6 +41,7 @@ namespace Newsy.Application.Users.Commands.RegisterUser
                         LastName = request.LastName,
                         UserName = request.Email,
                         Email = request.Email,
+                        PhoneNumber = request.PhoneNumber,
                         NormalizedUserName = request.Email.ToUpper(),
                         NormalizedEmail = request.Email.ToUpper(),
                         PasswordHash = hasher.HashPassword(null, request.Password),
