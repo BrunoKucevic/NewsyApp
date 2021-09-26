@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Newsy.Application.Shared.Extensions;
+using Newsy.Application.Shared.Interfaces;
 
 namespace Newsy.Application.Articles.Queries.AllArticles
 {
@@ -25,13 +27,18 @@ namespace Newsy.Application.Articles.Queries.AllArticles
         {
             var res = new AllArticlesViewModel();
 
-            var articles =
-                await _context.AppUserArticles
+            var query =
+                _context.AppUserArticles
                 .AsNoTracking()
-                .Include(i => i.Article).Where(a => !a.Article.Archived)
+                .Include(i => i.Article)
                 .Include(a => a.AppUser)
-                .Select(x => x.Map(new GetAllArticlesViewModel()))
+                .Where(a => !a.Article.Archived);
+
+            query = query.PaginateQuery(request.PageSize, request.CurrentPage, res);
+
+            var articles = await query.Select(x => x.Map(new GetAllArticlesViewModel()))
                 .ToListAsync(cancellationToken);
+
             res.Data.AddRange(articles);
 
             return res;

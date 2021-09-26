@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Newsy.Application.Articles.Commands.NewArticle;
 using Newsy.Application.Articles.Queries.AllArticles;
+using Newsy.Application.Articles.Queries.GetMyArticles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,16 +24,23 @@ namespace Newsy.Controllers
             return Ok(res);
         }
 
-        [HttpGet("allArticles")]
-        public async Task<ActionResult<AllArticlesViewModel>> GetAllArticles()
+        [HttpPost("allArticles")]
+        public async Task<ActionResult<AllArticlesViewModel>> GetAllArticles([FromBody] AllArticlesRequest request)
         {
-            AllArticlesRequest request = new AllArticlesRequest();
             AllArticlesViewModel res = await Mediator.Send(request);
 
             return Ok(res);
         }
 
         //articles by id and my articles
+        [HttpPost("myArticles")]
+        [Authorize(Roles = "Author")]
+        public async Task<ActionResult<GetMyArticlesViewModel>> GetMyArticles([FromBody] GetMyArticlesRequest request)
+        {
+            GetMyArticlesViewModel res = await Mediator.Send(request);
+
+            return Ok(res);
+        }
 
         //update artice
 

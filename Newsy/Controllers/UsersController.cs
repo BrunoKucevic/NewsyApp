@@ -29,9 +29,8 @@ namespace Newsy.Controllers
 
         [HttpGet("getAllUsers")]
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult<GetAllUsersViewModel>> GetAllUsers()
+        public async Task<ActionResult<GetAllUsersViewModel>> GetAllUsers([FromBody] GetAllUsersRequest request)
         {
-            GetAllUsersRequest request = new GetAllUsersRequest();
             GetAllUsersViewModel res = await Mediator.Send(request);
 
             return res;

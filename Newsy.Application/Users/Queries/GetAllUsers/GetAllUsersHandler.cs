@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Newsy.Application.Shared.Extensions;
+using Newsy.Application.Shared.Interfaces;
 
 namespace Newsy.Application.Users.Queries.GetAllUsers
 {
@@ -23,14 +25,17 @@ namespace Newsy.Application.Users.Queries.GetAllUsers
         {
             var res = new GetAllUsersViewModel();
 
-            var users =
-                await _context.AppUsers
+            var query =
+                 _context.AppUsers
                 .AsNoTracking()
                 .OrderBy(x => x.LastName)
                 .Include(r => r.UserRoles)
                     .ThenInclude(s => s.Role)
-                .Where(u => !u.Archived)
-                .Select(y => y.Map(new AllUsersViewModel()))
+                .Where(u => !u.Archived);
+
+            query = query.PaginateQuery(request.PageSize, request.CurrentPage, res);
+
+            var users = await query.Select(y => y.Map(new AllUsersViewModel()))
                 .ToListAsync(cancellationToken);
 
             res.Data.AddRange(users);

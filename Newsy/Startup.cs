@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newsy.Application.Shared.Interfaces;
+using Newsy.Application.Shared.Pipeline;
 using Newsy.Application.Users.Commands.RegisterUser;
 using Newsy.Domain.Context;
 using Newsy.Domain.Entities;
@@ -72,37 +73,22 @@ namespace Newsy
                 .AddDefaultTokenProviders();
 
             Application.AppInit.Initialize();
-
-            //// Add MediatR
-            services.AddMediatR(typeof(RegisterUserHandler).GetTypeInfo().Assembly);
-            //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
-            //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestCurrentCultureBehaviour<,>));
-            //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestAuthorizationBehaviour<,>));
-            //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestStringTrimmingBehavior<,>));
-            //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
-            //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
-
+            //DI
             services.AddTransient<ICurrentUserAccessor, CurrentUserAccessor>();
             services.AddTransient<UserManager<AppUser>>();
             services.AddTransient<SignInManager<AppUser>>();
+            services.AddMemoryCache();
+            //// Add MediatR
+            services.AddMediatR(typeof(RegisterUserHandler).GetTypeInfo().Assembly);
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));
+
+
 
             services.AddTransient<INewsyDbContext, NewsyDbContext>();
             //services.AddTransient<PasswordHasher<UserDetail>>();
             services.AddScoped<IAuthenticateService, AuthenticationService>();
 
             TokenManagement token = Configuration.GetSection("tokenManagement").Get<TokenManagement>();
-            //tokenValidationParameters = new TokenValidationParameters
-            //{
-            //    ValidateIssuerSigningKey = true,
-            //    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(token.Secret)),
-            //    ValidIssuer = token.Issuer,
-            //    ValidAudience = token.Audience,
-            //    ValidateIssuer = false,
-            //    ValidateAudience = false,
-            //    ValidateLifetime = true,
-            //    RequireExpirationTime = true,
-            //    ClockSkew = new TimeSpan(0)
-            //};
 
             services.AddAuthentication(auth =>
             {
@@ -123,37 +109,7 @@ namespace Newsy
                 };
             });
 
-            //services.AddAuthentication(auth =>
-            //{
-            //    auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    auth.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //})
-            //.AddJwtBearer(options =>
-            //{
-            //    options.SaveToken = true;
-            //    options.TokenValidationParameters = new TokenValidationParameters
-            //    {
-            //        ValidateIssuer = true,
-            //        ValidIssuer = token.Issuer,
-            //        ValidateAudience = true,
-            //        ValidAudience = token.Audience,
-            //        ValidateIssuerSigningKey = true,
-            //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(token.Secret)))
-            //    };
-            //};
-            //services.AddAuthentication(x =>
-            //{
-            //    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //})
-            //.AddJwtBearer(x =>
-            //{
-            //    x.RequireHttpsMetadata = false;
-            //    x.SaveToken = true;
-            //    x.TokenValidationParameters = tokenValidationParameters;
-            //});
-
-            // Register the Swagger generator, defining 1 or more Swagger documents
+            // Swagger
             services.AddSwaggerGen(c =>
             {
                 //c.EnableAnnotations();
