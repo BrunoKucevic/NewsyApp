@@ -21,7 +21,7 @@ namespace Newsy.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost, Route("request")]
+        [HttpPost, Route("requestToken")]
         public async Task<IActionResult> RequestToken([FromBody] TokenRequest request)
         {
             var userDetail = await _authenticateService.AuthenticateUserWithUsernameAndPassword(request.Username, request.Password);

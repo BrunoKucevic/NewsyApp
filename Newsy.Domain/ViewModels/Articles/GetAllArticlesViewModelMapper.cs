@@ -13,6 +13,7 @@ namespace Newsy.Domain.ViewModels.Articles
         public void RegisterMappings()
         {
             Mapper.Register<AppUserArticle, GetAllArticlesViewModel>()
+                    .Member(dest => dest.ArticleId, src => src.ArticleId)
                     .Member(dest => dest.Title, src => src.Article.Title)
                     .Member(dest => dest.Content, src => src.Article.Content)
                     .Member(dest => dest.AuthorName, src => src.AppUser.LastName);

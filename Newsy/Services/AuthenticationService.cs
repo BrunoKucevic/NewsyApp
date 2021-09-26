@@ -39,17 +39,6 @@ namespace Newsy.Services
             if (result != SignInResult.Success)
                 throw new LoginFailedException("UserDetail", username);
 
-            //if (expiryDays > 0 && passwordExpirationDateTime < DateTime.Now)
-            //{
-            //    string token = await _userManager.GeneratePasswordResetTokenAsync(userDetail);
-            //    if (!string.IsNullOrEmpty(token))
-            //    {
-            //        token = Uri.EscapeDataString(token);
-            //    }
-            //    string expiredPassRedirectUrl = $"{_emailManagement.SiteBaseUrl}reset?token={token}&username={userDetail.UserName}&type=expired";
-            //    throw new PasswordExpiredException(expiredPassRedirectUrl);
-            //}
-
             return userDetail;
         }
 

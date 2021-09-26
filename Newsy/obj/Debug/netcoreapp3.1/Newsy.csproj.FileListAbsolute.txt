@@ -120,3 +120,5 @@ C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210924075007_6
 C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210924075527_637680669274439729.json
 C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210924075559_637680669596642717.json
 C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210924081643_637680682039418050.json
+C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210926163951_637682711912354745.json
+C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210926164323_637682714036009394.json

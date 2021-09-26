@@ -34,7 +34,6 @@ namespace Newsy.Application.Articles.Queries.GetMyArticles
                 .AsNoTracking()
                 .Include(i => i.Article)
                 .Include(a => a.AppUser)
-                .Where(a => !a.Article.Archived)
                 .Where(x => x.AppUserId == _currentUserAccessor.GetUserId());
 
             query = query.PaginateQuery(request.PageSize, request.CurrentPage, res);
