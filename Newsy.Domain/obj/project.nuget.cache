@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3e5fOsgE/2isFkl1EMX0B0u8gWSEJdhi0GKJ3zQUh35rgbaskiiVL+ml1Apq5B1XH/vizz6JOzobEtl7FCVZyQ==",
+  "dgSpecHash": "F3xIgwqVgFnsP0wV5f06sV9seO1pGpiYYeC1KtZ46YgEY5b13+knMi+O20LD/tFzqlds5763oy9JKuEDcDUHtQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy.Domain\\Newsy.Domain.csproj",
+  "projectFilePath": "C:\\Users\\bruno.kucevic\\source\\repos\\NewsyApp\\Newsy.Domain\\Newsy.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bruno.kucevic\\.nuget\\packages\\audit.entityframework\\18.1.5\\audit.entityframework.18.1.5.nupkg.sha512",
     "C:\\Users\\bruno.kucevic\\.nuget\\packages\\audit.entityframework.core\\18.1.5\\audit.entityframework.core.18.1.5.nupkg.sha512",

@@ -7252,11 +7252,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy\\Newsy.csproj",
+      "projectUniqueName": "C:\\Users\\bruno.kucevic\\source\\repos\\NewsyApp\\Newsy\\Newsy.csproj",
       "projectName": "Newsy",
-      "projectPath": "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy\\Newsy.csproj",
+      "projectPath": "C:\\Users\\bruno.kucevic\\source\\repos\\NewsyApp\\Newsy\\Newsy.csproj",
       "packagesPath": "C:\\Users\\bruno.kucevic\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy\\obj\\",
+      "outputPath": "C:\\Users\\bruno.kucevic\\source\\repos\\NewsyApp\\Newsy\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -7275,11 +7275,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy.Application\\Newsy.Application.csproj": {
-              "projectPath": "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy.Application\\Newsy.Application.csproj"
+            "C:\\Users\\bruno.kucevic\\source\\repos\\NewsyApp\\Newsy.Application\\Newsy.Application.csproj": {
+              "projectPath": "C:\\Users\\bruno.kucevic\\source\\repos\\NewsyApp\\Newsy.Application\\Newsy.Application.csproj"
             },
-            "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy.Domain\\Newsy.Domain.csproj": {
-              "projectPath": "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy.Domain\\Newsy.Domain.csproj"
+            "C:\\Users\\bruno.kucevic\\source\\repos\\NewsyApp\\Newsy.Domain\\Newsy.Domain.csproj": {
+              "projectPath": "C:\\Users\\bruno.kucevic\\source\\repos\\NewsyApp\\Newsy.Domain\\Newsy.Domain.csproj"
             }
           }
         }

@@ -33,12 +33,9 @@ namespace Newsy
 {
     public class Startup
     {
-        //private readonly IServiceProvider _serviceProvider;
-        //private TokenValidationParameters tokenValidationParameters;
-        public Startup(IConfiguration configuration/*, IServiceProvider serviceProvider*/)
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            //_serviceProvider = serviceProvider;
         }
 
         public IConfiguration Configuration { get; }

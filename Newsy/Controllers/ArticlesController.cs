@@ -39,7 +39,6 @@ namespace Newsy.Controllers
             return Ok(res);
         }
 
-        //articles by id and my articles
         [HttpPost("myArticles")]
         [Authorize(Roles = "Author")]
         public async Task<ActionResult<GetMyArticlesViewModel>> GetMyArticles([FromBody] GetMyArticlesRequest request)
@@ -50,8 +49,6 @@ namespace Newsy.Controllers
             return Ok(res);
         }
 
-        //update artice
-        //archive article
         [HttpPost("updateMyArticle")]
         [Authorize(Roles = "Author")]
         public async Task<ActionResult<UpdateMyArticleViewModel>> UpdateMyArticle([FromBody] UpdateMyArticleRequest request)

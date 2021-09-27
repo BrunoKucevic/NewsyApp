@@ -14,11 +14,9 @@ namespace Newsy.Application.Articles.Commands.UpdateMyArticle
     public class UpdateMyArticleHandler : IRequestHandler<UpdateMyArticleRequest, UpdateMyArticleViewModel>
     {
         private readonly INewsyDbContext _context;
-        private readonly ICurrentUserAccessor _currentUserAccessor;
         public UpdateMyArticleHandler(INewsyDbContext context, ICurrentUserAccessor currentUserAccessor)
         {
             _context = context;
-            _currentUserAccessor = currentUserAccessor;
         }
         public async Task<UpdateMyArticleViewModel> Handle(UpdateMyArticleRequest request, CancellationToken cancellationToken)
         {

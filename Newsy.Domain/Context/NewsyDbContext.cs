@@ -58,7 +58,6 @@ namespace Newsy.Domain.Context
 
             if (Database.IsSqlServer())
             {
-                //seed database
                 InitialDataSeed.SeedInitialData(builder);
             }
         }

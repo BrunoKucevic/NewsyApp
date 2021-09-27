@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy.Domain\\Newsy.Domain.csproj": {}
+    "C:\\Users\\bruno.kucevic\\source\\repos\\NewsyApp\\Newsy.Domain\\Newsy.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy.Domain\\Newsy.Domain.csproj": {
+    "C:\\Users\\bruno.kucevic\\source\\repos\\NewsyApp\\Newsy.Domain\\Newsy.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy.Domain\\Newsy.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\bruno.kucevic\\source\\repos\\NewsyApp\\Newsy.Domain\\Newsy.Domain.csproj",
         "projectName": "Newsy.Domain",
-        "projectPath": "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy.Domain\\Newsy.Domain.csproj",
+        "projectPath": "C:\\Users\\bruno.kucevic\\source\\repos\\NewsyApp\\Newsy.Domain\\Newsy.Domain.csproj",
         "packagesPath": "C:\\Users\\bruno.kucevic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy.Domain\\obj\\",
+        "outputPath": "C:\\Users\\bruno.kucevic\\source\\repos\\NewsyApp\\Newsy.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
