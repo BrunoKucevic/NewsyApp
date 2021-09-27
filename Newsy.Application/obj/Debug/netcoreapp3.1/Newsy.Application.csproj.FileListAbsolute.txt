@@ -14,3 +14,16 @@ C:\Users\Brunc\source\repos\Newsy\Newsy.Application\obj\Debug\netcoreapp3.1\News
 C:\Users\Brunc\source\repos\Newsy\Newsy.Application\obj\Debug\netcoreapp3.1\Newsy.Application.csproj.CopyComplete
 C:\Users\Brunc\source\repos\Newsy\Newsy.Application\obj\Debug\netcoreapp3.1\Newsy.Application.dll
 C:\Users\Brunc\source\repos\Newsy\Newsy.Application\obj\Debug\netcoreapp3.1\Newsy.Application.pdb
+C:\Users\bruno.kucevic\Source\Repos\NewsyApp\Newsy.Application\bin\Debug\netcoreapp3.1\Newsy.Domain.exe
+C:\Users\bruno.kucevic\Source\Repos\NewsyApp\Newsy.Application\bin\Debug\netcoreapp3.1\Newsy.Application.deps.json
+C:\Users\bruno.kucevic\Source\Repos\NewsyApp\Newsy.Application\bin\Debug\netcoreapp3.1\Newsy.Application.dll
+C:\Users\bruno.kucevic\Source\Repos\NewsyApp\Newsy.Application\bin\Debug\netcoreapp3.1\Newsy.Application.pdb
+C:\Users\bruno.kucevic\Source\Repos\NewsyApp\Newsy.Application\bin\Debug\netcoreapp3.1\Newsy.Domain.dll
+C:\Users\bruno.kucevic\Source\Repos\NewsyApp\Newsy.Application\bin\Debug\netcoreapp3.1\Newsy.Domain.pdb
+C:\Users\bruno.kucevic\Source\Repos\NewsyApp\Newsy.Application\obj\Debug\netcoreapp3.1\Newsy.Application.csprojAssemblyReference.cache
+C:\Users\bruno.kucevic\Source\Repos\NewsyApp\Newsy.Application\obj\Debug\netcoreapp3.1\Newsy.Application.AssemblyInfoInputs.cache
+C:\Users\bruno.kucevic\Source\Repos\NewsyApp\Newsy.Application\obj\Debug\netcoreapp3.1\Newsy.Application.AssemblyInfo.cs
+C:\Users\bruno.kucevic\Source\Repos\NewsyApp\Newsy.Application\obj\Debug\netcoreapp3.1\Newsy.Application.csproj.CoreCompileInputs.cache
+C:\Users\bruno.kucevic\Source\Repos\NewsyApp\Newsy.Application\obj\Debug\netcoreapp3.1\Newsy.Application.csproj.CopyComplete
+C:\Users\bruno.kucevic\Source\Repos\NewsyApp\Newsy.Application\obj\Debug\netcoreapp3.1\Newsy.Application.dll
+C:\Users\bruno.kucevic\Source\Repos\NewsyApp\Newsy.Application\obj\Debug\netcoreapp3.1\Newsy.Application.pdb

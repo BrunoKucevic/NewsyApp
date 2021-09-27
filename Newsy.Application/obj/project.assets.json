@@ -6881,27 +6881,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Brunc\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Users\\bruno.kucevic\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Brunc\\source\\repos\\Newsy\\Newsy.Application\\Newsy.Application.csproj",
+      "projectUniqueName": "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy.Application\\Newsy.Application.csproj",
       "projectName": "Newsy.Application",
-      "projectPath": "C:\\Users\\Brunc\\source\\repos\\Newsy\\Newsy.Application\\Newsy.Application.csproj",
-      "packagesPath": "C:\\Users\\Brunc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Brunc\\source\\repos\\Newsy\\Newsy.Application\\obj\\",
+      "projectPath": "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy.Application\\Newsy.Application.csproj",
+      "packagesPath": "C:\\Users\\bruno.kucevic\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Brunc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\bruno.kucevic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -6912,10 +6909,9 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Brunc\\source\\repos\\Newsy\\Newsy.Domain\\Newsy.Domain.csproj": {
-              "projectPath": "C:\\Users\\Brunc\\source\\repos\\Newsy\\Newsy.Domain\\Newsy.Domain.csproj"
+            "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy.Domain\\Newsy.Domain.csproj": {
+              "projectPath": "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy.Domain\\Newsy.Domain.csproj"
             }
           }
         }
@@ -6928,7 +6924,6 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "ExpressMapper.Core": {
             "target": "Package",
@@ -6958,7 +6953,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.408\\RuntimeIdentifierGraph.json"
       }
     }
   }

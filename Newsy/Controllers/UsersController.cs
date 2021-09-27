@@ -50,7 +50,7 @@ namespace Newsy.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesDefaultResponseType]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateCurrentUser([FromBody] UpdateCurrentUserRequest request)
+        public async Task<IActionResult> UpdateUser([FromBody] UpdateUserRequest request)
         {
             await Mediator.Send(request);
 
