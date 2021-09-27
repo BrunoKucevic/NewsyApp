@@ -32,6 +32,7 @@ namespace Newsy.Controllers
         }
 
         [HttpPost("allArticles")]
+        [Authorize(Roles = "RegularUser")]
         public async Task<ActionResult<AllArticlesViewModel>> GetAllArticles([FromBody] AllArticlesRequest request)
         {
             AllArticlesViewModel res = await Mediator.Send(request);
