@@ -6294,24 +6294,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\bruno.kucevic\\.nuget\\packages\\": {},
+    "C:\\Users\\Brunc\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy.Domain\\Newsy.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Brunc\\source\\repos\\Newsy\\Newsy.Domain\\Newsy.Domain.csproj",
       "projectName": "Newsy.Domain",
-      "projectPath": "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy.Domain\\Newsy.Domain.csproj",
-      "packagesPath": "C:\\Users\\bruno.kucevic\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bruno.kucevic\\Source\\Repos\\NewsyApp\\Newsy.Domain\\obj\\",
+      "projectPath": "C:\\Users\\Brunc\\source\\repos\\Newsy\\Newsy.Domain\\Newsy.Domain.csproj",
+      "packagesPath": "C:\\Users\\Brunc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Brunc\\source\\repos\\Newsy\\Newsy.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\bruno.kucevic\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Brunc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -6322,6 +6325,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -6333,6 +6337,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Audit.EntityFramework": {
             "target": "Package",
@@ -6393,12 +6398,18 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.1.18, 3.1.18]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.408\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
       }
     }
   }
