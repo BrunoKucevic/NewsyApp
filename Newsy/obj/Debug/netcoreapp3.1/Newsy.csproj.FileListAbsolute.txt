@@ -249,3 +249,5 @@ C:\Users\bruno.kucevic\Source\Repos\NewsyApp\Newsy\obj\Debug\netcoreapp3.1\stati
 C:\Users\bruno.kucevic\Source\Repos\NewsyApp\Newsy\obj\Debug\netcoreapp3.1\Newsy.dll
 C:\Users\bruno.kucevic\Source\Repos\NewsyApp\Newsy\obj\Debug\netcoreapp3.1\Newsy.pdb
 C:\Users\bruno.kucevic\Source\Repos\NewsyApp\Newsy\obj\Debug\netcoreapp3.1\Newsy.genruntimeconfig.cache
+C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210927152528_637683531283600225.json
+C:\Users\Brunc\source\repos\Newsy\Newsy\bin\Debug\netcoreapp3.1\20210927152630_637683531905122911.json

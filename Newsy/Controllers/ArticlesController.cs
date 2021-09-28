@@ -44,7 +44,6 @@ namespace Newsy.Controllers
         [Authorize(Roles = "Author")]
         public async Task<ActionResult<GetMyArticlesViewModel>> GetMyArticles([FromBody] GetMyArticlesRequest request)
         {
-            request.Id = _currentUserAccessor.GetUserId();
             GetMyArticlesViewModel res = await Mediator.Send(request);
 
             return Ok(res);

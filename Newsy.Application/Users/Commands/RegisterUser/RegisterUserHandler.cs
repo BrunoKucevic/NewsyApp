@@ -29,7 +29,6 @@ namespace Newsy.Application.Users.Commands.RegisterUser
 
                 try
                 {
-                    //Guid roleId = _context.Roles.First(r => r.Name == RolesConsts.RegularUser).Id;
                     Guid userId = Guid.NewGuid();
 
                     PasswordHasher<AppUser> hasher = new PasswordHasher<AppUser>();
